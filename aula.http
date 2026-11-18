@@ -1,0 +1,16 @@
+### Antes de implementar JWT — esperado 200 com resultado 5
+GET http://localhost:8081/calculadora/somar/2/3
+
+### Depois de implementar — login
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{"login":"admin","senha":"AulaJwt123!"}
+
+### Cole o token retornado no lugar de COLE_O_TOKEN
+GET http://localhost:8081/calculadora/subtrair/5/2
+Authorization: Bearer COLE_O_TOKEN
+
+### Com a regra de authority corrigida — esperado 5
+GET http://localhost:8081/calculadora/somar/2/3
+Authorization: Bearer COLE_O_TOKEN

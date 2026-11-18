@@ -79,3 +79,43 @@ mvn clean test jacoco:report
 
 Os relatórios de cobertura em HTML estarão disponíveis no diretório: 
 `target/site/jacoco/index.html`
+## Backend da aula JWT com PostgreSQL
+
+O login procura os usuários na tabela `usuarios`. O Flyway cria a tabela e inclui um usuário para a aula na primeira inicialização.
+
+### Iniciar o banco
+
+Abra o Docker Desktop e, na pasta do projeto, execute
+
+```bash
+docker compose up -d
+```
+
+Para conferir se o banco iniciou
+
+```bash
+docker compose ps
+```
+
+### Iniciar a API
+
+```bash
+bash mvnw spring-boot:run
+```
+
+A API inicia na porta `8080` por padrão. Para usar a porta `8081` no frontend
+
+```bash
+bash mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081
+```
+
+Credenciais da aula
+
+- Login `admin`
+- Senha `AulaJwt123!`
+
+O PostgreSQL usa o banco `aula_jwt`, usuário `aula` e senha `aula123` para desenvolvimento local. Os valores podem ser sobrescritos com `DB_URL`, `DB_USER` e `DB_PASSWORD`.
+
+O volume `postgres-data` mantém os dados entre reinícios do container. Para apagar o banco e recriá-lo do zero, execute `docker compose down -v`.
+
+A migration inicial está em `src/main/resources/db/migration`. Hibernate valida o esquema criado pelo Flyway e não altera tabelas automaticamente.

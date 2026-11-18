@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Aula JWT — executar" type="MavenRunConfiguration" factoryName="Maven">
+    <MavenSettings>
+      <option name="myRunnerParameters">
+        <MavenRunnerParameters>
+          <option name="workingDirPath" value="$PROJECT_DIR$" />
+          <option name="goals"><list><option value="spring-boot:run" /><option value="-Dspring-boot.run.arguments=--server.port=8081" /></list></option>
+        </MavenRunnerParameters>
+      </option>
+      <option name="myRunnerSettings">
+        <MavenRunnerSettings>
+          <option name="environmentProperties"><map><entry key="API_SECURITY_TOKEN_SECRET" value="a63492c7e521a4c1f05194a5a0b20b20c8239fb382476363e94d5ac1d7700c7c" /></map></option>
+        </MavenRunnerSettings>
+      </option>
+    </MavenSettings>
+    <method v="2" />
+  </configuration>
+</component>

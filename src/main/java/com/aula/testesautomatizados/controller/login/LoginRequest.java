@@ -1,4 +1,7 @@
 package com.aula.testesautomatizados.controller.login;
 
-public record LoginRequest() {
+public record LoginRequest(
+        String login,
+        String senha
+) {
 }

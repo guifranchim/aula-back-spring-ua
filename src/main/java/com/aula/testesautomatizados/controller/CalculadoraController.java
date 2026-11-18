@@ -2,12 +2,14 @@ package com.aula.testesautomatizados.controller;
 
 import com.aula.testesautomatizados.service.CalculadoraService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//LOCALHOST:3000/calculadora
 @RequestMapping("calculadora")
 public class CalculadoraController {
 
@@ -17,7 +19,9 @@ public class CalculadoraController {
         this.calculadoraService = calculadoraService;
     }
 
+    // GET LOCALHOST:3000/calculadora/somar/{numerox}/{numeroy}
     @GetMapping("somar/{numerox}/{numeroy}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<Integer> somar(@PathVariable Integer numerox, @PathVariable Integer numeroy) {
         return ResponseEntity.ok(calculadoraService.somar(numerox, numeroy));
     }
