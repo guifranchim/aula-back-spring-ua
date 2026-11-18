@@ -114,7 +114,7 @@ Credenciais da aula
 - Login `admin`
 - Senha `AulaJwt123!`
 
-O PostgreSQL usa o banco `aula_jwt`, usuário `aula` e senha `aula123` para desenvolvimento local. Os valores podem ser sobrescritos com `DB_URL`, `DB_USER` e `DB_PASSWORD`.
+O PostgreSQL usa o banco `aula_db`, usuário `aula_user` e senha `senhaforte` para desenvolvimento local. Os valores podem ser sobrescritos com `DB_URL`, `DB_USER` e `DB_PASSWORD`.
 
 O volume `postgres-data` mantém os dados entre reinícios do container. Para apagar o banco e recriá-lo do zero, execute `docker compose down -v`.
 

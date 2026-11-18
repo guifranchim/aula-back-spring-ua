@@ -3,15 +3,15 @@ services:
     image: postgres:17-alpine
     container_name: aula-jwt-postgres
     environment:
-      POSTGRES_DB: aula_jwt
-      POSTGRES_USER: aula
-      POSTGRES_PASSWORD: aula123
+      POSTGRES_DB: aula_db
+      POSTGRES_USER: aula_user
+      POSTGRES_PASSWORD: senhaforte
     ports:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U aula -d aula_jwt"]
+      test: ["CMD-SHELL", "pg_isready -U aula_user -d aula_db"]
       interval: 5s
       timeout: 3s
       retries: 10
